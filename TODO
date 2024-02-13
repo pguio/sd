@@ -1,0 +1,9 @@
+-*- outline -*-
+
+Things it might be nice to do someday.  I haven't evaluated all of
+these suggestions... their presence here doesn't imply my endorsement.
+-pg
+
+* Parameterise properties such as number of significant digits in the title
+
+* Add set functions for colorflags
