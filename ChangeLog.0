@@ -1,0 +1,177 @@
+
+2006-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* yule_kendall.m:
+	Compute the Yule-Kendall index.
+
+2006-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* skewness.m:
+	Compute sample skewness.
+
+2006-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* mad.m:
+	Compute the mean absolute deviation.
+
+2006-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* kurtosis.m:
+	Compute kurtosis.
+
+2006-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* trimmean.m:
+	Compute the trimmed mean.
+
+2006-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* iqr.m:
+	New file to compute the interquartile range.
+
+2006-04-27  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* mean.m, median.m, quantile.m, std.m:
+	Fixed a bug when building the temp variable.
+
+2006-01-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* max.m, mean.m, median.m, min.m, quantile.m, std.m, var.m:
+	Added code to support operator for function argument given as a list of sd
+	objects.
+
+2006-01-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* sd.m:
+	Added flag to calculate the standard deviation.
+	Added code to calculate the standard deviation.
+
+2005-10-04  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* quiver.m:
+	Fixed typo.
+
+2005-10-04  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* slice.m:
+	Fixed 3d and 4d cases.
+
+2005-10-04  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* curl.m:
+	Fixed assignement of varargout to be cell object.
+
+2005-09-30  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* circshift.m, fliplr.m, flipud.m, ipermute.m:
+	Overloaded permuting operators.
+
+2005-09-30  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* del2.m:
+	Numerical Laplacian.
+
+2005-05-26  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* plot.m:
+	Uncommented ylabeling depending on subplot position.
+
+2005-05-26  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* get.m:
+	Convert sd object to a struct before accessing any members.
+	Cosmetic changes.
+
+2005-05-26  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* set.m:
+	Cosmetic changes.
+
+2005-05-26  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* set.m:
+	convert sd object to a struct before accessing any members.
+
+2005-05-25  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* private/maketitle.m:
+	Fixed typos (dims2str -> dim2str).
+
+2005-05-25  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* contour.m, contourf.m, imagesc.m, loglog.m, mesh.m, pcolor.m,
+	  plot.m, plot3.m, quiver.m, quiver3.m, semilogx.m, semilogy.m,
+	  slice.m, surf.m, surfc.m, surfl.m:
+	Replaced code to create title with a call to private method maketitle.
+
+2005-05-25  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* private/maketitle.m:
+	Added support for 3d type title.
+
+2005-05-24  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* plot.m, semilogx.m:
+	Replaced title string construction by a call to private method maketitle.
+
+2005-05-24  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* private/maketitle.m:
+	Private method to create a string title.
+
+2005-05-24  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* private/dim2str.m:
+	Private method to stringify nicely a dim variable.
+
+2005-05-22  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* max.m, min.m, std.m, sum.m:
+	Removed squeeze'ing after reduce'ing that coul mess up dimension.
+
+2005-05-22  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* mean.m:
+	Removed squeeze'ing after mean'ing that coul mess up dimension.
+
+2005-05-22  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* quiver.m:
+	Modified argument to num2str to be 4 significant digits.
+
+2005-05-18  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* plot3.m:
+	Modified argument to num2str to be 4 significant digits.
+
+2005-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* slice.m:
+	Modified argument to num2str to be 4 significant numbers.
+	Fixed use of colorbarflag.
+
+2005-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* imagesc.m, squeeze.m:
+	Modified argument to num2str to be 4 significant numbers.
+
+2005-05-12  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* sqrt.m:
+	Fixed varname.
+
+2005-03-16  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* minus.m, mrdivide.m, plus.m, rdivide.m, times.m:
+	Added support when one of the argument is a number.
+
+2005-03-11  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* quiver.m:
+	Fixed header comment.
+
+2005-01-18  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fft.m, ifft.m:
+	Fixed time/frequency axis values.
+

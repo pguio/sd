@@ -1,0 +1,495 @@
+2017-03-16  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writenetcdf.m:
+	Do not try to redefine a dimension if already defined.
+
+2017-03-16  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writehdf4.m:
+	Always create hdf4 file as it seems to work now even if the file exists.
+
+2015-11-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Fixed filename and type checking without and without seeds suffix.
+
+2015-11-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Improved error message.
+
+2015-11-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Fixed the netcdf/hdf4/hdf5 wrapper to allow for filename provided without
+	extension to be recognised still by checking full file name  existence.
+	Fixed some short-circuit logic when multiple tests.
+
+2015-09-24  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* skewness.m:
+	Fixed missing parenthesis in call to statistics toolbox skewness.
+
+2015-06-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/readnetcdf.m:
+	Reinstate diagnostic about dimensions name, id and length.
+
+2015-06-04  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/readhdf4.m:
+	Fixed a bug that occur when extracting a given slice of the data due to
+	Matlab using Fortran-style indexing.
+
+2015-04-20  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writenetcdf.m:
+	Removed unecessary statement.
+
+2015-04-20  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fft.m, ifft.m:
+	Changed to parameters list to mimic the behaviour of the native Matlab
+	functions fft and ifft.
+
+2015-04-20  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m, save.m:
+	Added information in the help section.
+
+2014-09-25  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Bug fix in filename extension check.
+	Fixed missing hdfver argument in one the call to readone function.
+
+2014-06-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/readcmat2netcdf.m:
+	Added comments on Julian date.
+
+2014-06-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writenetcdf.m:
+	Function to write sd objects into a netcdf file.
+
+2014-06-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/readcmat2netcdf.m:
+	Replaced function to compute Gregorian date from Julian day, as jd2jdate
+	function appeared to be buggy, while julian2greg seems more thoroughly
+	tested.
+
+2014-06-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/julian2greg.m:
+	Utility function to convert Julian date into Gregorian date.
+	The function is available from Matlab Central:
+	http://www.mathworks.co.uk/matlabcentral/fileexchange/11410-julian2greg
+
+2014-06-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* save.m:
+	Added support to write sd objects to a netcdf file.
+
+2014-06-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/: readcmat2netcdf.m, readnetcdf.m:
+	Functions to read netcdf and CMAT2 netcdf files (CMAT2 netcdf files have
+	an unlimited 'time' dimension but no corresponding 'time' variable, instead
+	the files contain two variables with 'time' dimension julia_day and utsecs.
+	When reading CMAT2 those two dimensions are used together to compute a
+	serial time.
+
+2014-06-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Added support to support netcdf and CMAT2 netcdf files.
+
+2014-06-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writehdf5.m:
+	Fixed code for consistency between read and write functions.
+
+2014-06-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writehdf4_hdfsd.m:
+	Added code to check returned status of some major calls to hdfsd function.
+	Fix code for consistency between read and write functions.
+
+2014-06-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writehdf4.m:
+	Added test on file existence to open the file in create or write mode.
+
+2014-06-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/readhdf4_hdfsd.m:
+	Added code to check returned status of some major calls to hdfsd function.
+
+2014-06-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* save.m:
+	Bug fix.
+
+2014-06-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	If the filename contains a suffix but no format is given, assume filename
+	extension .hdf means HDF4 and .h5 means HDF5.
+
+2014-06-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* save.m:
+	Added optional input argument to specify the function to write the HDF file,
+	either hdf4, hdf5 or the old obsoleted hdfsd.
+
+2014-06-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/: writehdf4.m, writehdf4_hdfsd.m:
+	Moved original writehdf4 function to writehdf4_hdfsd as matlab's hdfsd
+	function is not recommended any longer, and updated writehdf4 to use the
+	newer matlab.io.hdf4.sd interface.
+
+2014-06-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Added optional input argument to specify the function to read the HDF file,
+	either hdf4, hdf5 or the old obsoleted hdfsd.
+
+2014-06-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/: readhdf4.m, readhdf4_hdfsd.m:
+	Moved original readhdf4 function to readhdf4_hdfsd as matlab's hdfsd
+	function is not recommended any longer, and updated readhdf4 to use the
+	newer matlab.io.hdf4.sd interface.
+
+2014-06-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* eq.m, ne.m:
+	Fixed a bug when testing dimensions that would trigger an error.
+	Improved efficiency by returning immediately after condition not fulfilled.
+
+2012-11-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/writehdf5.m:
+	Some code cleaning and housekeeping.
+
+2012-11-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* eq.m, ne.m:
+	Added equal and not equal operators.
+
+2012-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* save.m, private/writehdf4.m, private/writehdf5.m:
+	Added support for hdf5 interface.
+	Made hdf4 and hdf5 saving functions private functions.
+
+2012-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/name2label.m:
+	Fixed syntax error introduced when moving out function convert from
+	constructor sd.
+
+2012-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m, private/name2label.m, private/readhdf4.m,
+	  private/readhdf5.m:
+	Added support for hdf5 interface.
+	Made hdf4 and hdf5 reading functions and name2label utility private
+	functions.
+
+2012-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fft2.m:
+	Cosmetic change.
+
+2011-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* max.m, min.m:
+	Makes overloaded min/max mostly compliant with Matlab native behaviour.
+	The exception is the one argument case which returns a scalar.
+
+2011-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Added better check when using a reduction function.
+	Replaced an unecessary if/else by using if/elseif/else capability.
+
+2011-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* max.m:
+	Added possibility to return as second argument the index in the array of
+	the max value.
+
+2011-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* get.m:
+	Temporarily disable warning when converting class to struct in order to
+	get a field's value.
+
+2011-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* set.m:
+	Temporarily disable warning when converting class to struct in order to
+	set a field.
+
+2011-07-21  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Added classdef, properties and methods keywords.
+	Updated help.
+
+2011-07-21  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* ver.m:
+	Method to return version of the class/object.
+
+2011-03-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* abs.m, cat.m, circshift.m, conj.m, contour.m, contourf.m,
+	  ctranspose.m, curl.m, del2.m, display.m, divergence.m, end.m,
+	  exp.m, fft.m, fft2.m, fliplr.m, flipud.m, get.m, gradient.m,
+	  horzcat.m, ifft.m, imag.m, imagesc.m, ipermute.m, iqr.m,
+	  isfinite.m, isinf.m, isnan.m, kurtosis.m, length.m, log.m,
+	  log10.m, loglog.m, mad.m, max.m, mean.m, median.m, mesh.m, min.m,
+	  minus.m, mrdivide.m, mtimes.m, pcolor.m, permute.m, plot.m,
+	  plot3.m, plus.m, power.m, prctile.m, prod.m, quantile.m,
+	  quiver.m, quiver3.m, rdivide.m, real.m, save.m, sd.m, semilogx.m,
+	  semilogy.m, set.m, sign.m, size.m, skewness.m, slice.m, sqrt.m,
+	  squeeze.m, std.m, subsref.m, subvolume.m, sum.m, surf.m, surfc.m,
+	  surfl.m, times.m, transpose.m, trimmean.m, uminus.m,
+	  update-cl.sh, var.m, vertcat.m, yule_kendall.m,
+	  private/dim2str.m, private/maketitle.m:
+	Updated header information.
+
+2009-10-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* std.m, var.m:
+	Forced variance and std calculation to be unbiased
+
+2009-02-20  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* imagesc.m:
+	Replaced two calls to built-in isfinite by one call to @sd/isfinite.m.
+
+2009-02-20  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* contour.m, contourf.m, imagesc.m, iqr.m, kurtosis.m, loglog.m,
+	  mad.m, max.m, mean.m, median.m, min.m, pcolor.m, plot.m, plot3.m,
+	  prctile.m, prod.m, quantile.m, semilogx.m, semilogy.m,
+	  skewness.m, slice.m, std.m, sum.m, trimmean.m, var.m,
+	  yule_kendall.m:
+	Replaced call to finite() by isfinite() as finite() is obsolete (R2008b)
+	and will be removed in future versions.
+
+2008-07-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* length.m:
+		New overloaded method.
+
+2008-07-25  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* set.m:
+	Bug fix when calling setfield, val should be a cell of val.
+
+2008-07-18  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* kurtosis.m, mad.m, max.m, mean.m, median.m, min.m, prctile.m,
+	  prod.m, quantile.m, skewness.m, std.m, sum.m, trimmean.m, var.m,
+	  yule_kendall.m:
+	Fixed bug introduced with reshape with size vectors less than two.
+
+2008-07-18  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* kurtosis.m, mad.m, max.m, mean.m, median.m, min.m, prctile.m,
+	  prod.m, quantile.m, skewness.m, std.m, sum.m, trimmean.m, var.m,
+	  yule_kendall.m:
+	Fixed trick to squeeze only the reduced dimension.
+
+2008-07-17  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* slice.m:
+	Small fix for title when dimension array is 3.
+
+2008-06-17  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* loglog.m, semilogx.m, semilogy.m:
+	Do not force subplot(111) if only nargin<2.
+
+2008-04-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* iqr.m, kurtosis.m, mad.m, max.m, mean.m, median.m, min.m, prod.m,
+	  quantile.m, skewness.m, std.m, sum.m, trimmean.m, var.m,
+	  yule_kendall.m:
+	Cosmetic changes to clean code.
+
+2008-04-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* prctile.m:
+	New overloaded function to calculate percentiles of a sample.
+
+2008-04-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* quantile.m:
+	Fixed case when no dimension specified, propagate cumulative probability
+	values in p.
+
+2008-02-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Added test to check whether the hdf variable exists.
+
+2008-02-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* get.m, set.m:
+	Small fixes.
+
+2008-02-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* get.m, set.m:
+	Improved syntax robustness of query and modifier operators to subset of
+	cells.
+
+2008-02-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Added support for reduction function when several realisations available.
+
+2008-02-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* save.m:
+	Enhanced example.
+
+2008-02-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* abs.m, conj.m, ctranspose.m, exp.m, fft.m, fft2.m, ifft.m,
+	  imag.m, ipermute.m, iqr.m, kurtosis.m, log.m, log10.m, mad.m,
+	  max.m, mean.m, median.m, min.m, minus.m, mtimes.m, permute.m,
+	  plus.m, power.m, prod.m, quantile.m, real.m, sd.m, skewness.m,
+	  sqrt.m, squeeze.m, std.m, subvolume.m, sum.m, times.m,
+	  transpose.m, trimmean.m, var.m, yule_kendall.m:
+	Removed completely any support for var_std field.
+
+2007-12-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* iqr.m, kurtosis.m, mad.m, max.m, mean.m, median.m, min.m, prod.m,
+	  quantile.m, skewness.m, std.m, sum.m, trimmean.m, var.m,
+	  yule_kendall.m:
+	Fixed size of returned reduced object to be the same as the inputs in the
+	case when the last dimension is a singleton.
+
+2007-12-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* prod.m:
+	Added product reduction overloaded operator.
+
+2007-10-12  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sd.m:
+	Added field 'verbose'.
+
+2007-10-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* get.m, set.m:
+	Added support for variable argument list of field names.
+
+2007-10-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* save.m, sdsave.m:
+	Renamed sdsave function into save.
+	Added an example how to use it.
+
+2007-10-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* cat.m, horzcat.m, vertcat.m:
+	Added support for concatenation of SD objects.
+
+2007-09-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* end.m:
+	New overloaded operator.
+
+2007-07-27  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* max.m, min.m:
+	Fixed misbehaviour when argument is a list of same size arrays.
+
+2007-07-27  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* quantile.m:
+	Fixed command help.
+
+2007-07-17  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sum.m:
+	Upgraded overloaded sum behaviour like behaviour of mean operator (no
+	specified dimension means sum over all dimension).
+
+2007-07-17  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* conj.m:
+	Overloading of complex conjugate operator.
+
+2007-05-30  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* plot.m:
+	Added nargin test to trigger subplot functionality.
+
+2007-05-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sdsave.m:
+	Added code for float type.
+
+2007-05-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* imagesc.m:
+	Added test for single argument.
+
+2007-04-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* quiver3.m:
+	Fixed bug when making title.
+
+2007-04-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* private/maketitle.m:
+	Fixed the case rank=3 and dim=3 and it not specified.
+
+2007-04-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sdsave.m:
+	Added global attribute Version in the HDF file.
+
+2007-04-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* quiver.m:
+	Fixed a bug when building variable for the variable of rank 2 case.
+
+2007-04-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* sdsave.m:
+	Save SD object(s) into a new HDF4 file.
+
+2006-11-19  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* mean.m, median.m, std.m:
+	Squeeze resulting array after reduction.
+
+2006-11-04  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* subsref.m:
+	Fixed license date.
+
+2006-11-04  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* subsref.m:
+	Overloaded function for subscript reference like A = B(I).
+
+2006-08-28  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* ChangeLog, ChangeLog.0, update-cl.sh:
+	Moved manually filled in ChangeLog into ChangeLog.0.
+	Added script to fill in ChangeLog using cvs2cl.
+
